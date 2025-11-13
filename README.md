@@ -2,11 +2,12 @@
 
 Une plateforme de streaming inspirée de Netflix, développée en PHP/MySQL avec un design responsive moderne.
 
-![NetflixX](https://img.shields.io/badge/Version-1.0-red) ![PHP](https://img.shields.io/badge/PHP-7.4+-blue) ![MySQL](https://img.shields.io/badge/MySQL-5.7+-green)
+![NetflixX](https://img.shields.io/badge/Version-2.0-red) ![PHP](https://img.shields.io/badge/PHP-7.4+-blue) ![MySQL](https://img.shields.io/badge/MySQL-5.7+-green)
 
 ## ✨ Fonctionnalités
 
-- 🏠 **Page d'accueil** avec les 5 derniers films
+- � **Intro Netflix animée** avec son authentique et animation "NET"
+- �🏠 **Page d'accueil** avec les 5 derniers films
 - 🎬 **Catalogue complet** des films
 - 📽️ **Pages détaillées** avec bandes-annonces YouTube
 - 🔐 **Système d'authentification** (inscription/connexion)
@@ -22,6 +23,18 @@ Une plateforme de streaming inspirée de Netflix, développée en PHP/MySQL avec
 - **Frontend :** HTML5, CSS3 (Flexbox/Grid)
 - **Sécurité :** Hachage bcrypt, sessions PHP
 - **Upload :** Gestion sécurisée des images
+
+## 🎥 Intro Netflix
+
+La plateforme démarre avec une **intro animée authentique** :
+
+- **Animation "NET"** - Lettres qui apparaissent progressivement avec effets visuels
+- **Son Netflix** - Audio original synchronisé avec l'animation
+- **Contrôles** - ESPACE, ÉCHAP ou clic pour passer l'intro
+- **Auto-skip** - Transition automatique après 5 secondes
+- **Design épuré** - Interface minimaliste pour une immersion totale
+
+Pour ajouter votre propre son Netflix, placez le fichier `netflix-intro.mp3` dans le dossier `assets/`.
 
 ## 📋 Prérequis
 
