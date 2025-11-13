@@ -86,11 +86,23 @@ $username = 'votre_user';           // Votre utilisateur MySQL
 $password = 'votre_password';       // Votre mot de passe MySQL
 ```
 
-### 4. Permissions des dossiers
+### 4. Permissions et images d'exemple
 ```bash
+# Créer le dossier uploads
+mkdir uploads/images/
+
+# Copier les images d'exemple
+cp sample-images/* uploads/images/
+
+# Permissions (Unix/Linux)
 chmod 755 uploads/
 chmod 755 uploads/images/
 ```
+
+### 5. Premiers tests
+- Visitez `http://localhost/votre-projet/`
+- Les films d'exemple s'afficheront avec leurs images
+- Connectez-vous en admin pour tester l'ajout de films
 
 ## 📂 Structure du projet
 
@@ -172,7 +184,7 @@ Ce projet est sous licence MIT. Voir le fichier `LICENSE` pour plus de détails.
 
 ## 👥 Contributeurs
 
-- [Votre Nom] - Développeur principal
+- **Benoit VIET** - Développeur principal
 
 ## 🤝 Contribution
 

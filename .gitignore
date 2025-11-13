@@ -12,9 +12,11 @@ database.sql
 # Template de BDD autorisé
 !database_template.sql
 
-# Uploads et fichiers utilisateurs (contenu sensible)
-uploads/*
-!uploads/README.md
+# Uploads utilisateurs (personnels)
+uploads/
+
+# Images d'exemple autorisées
+!sample-images/
 temp/
 
 # Fichiers de cache et temporaires
