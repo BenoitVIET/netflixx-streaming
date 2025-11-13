@@ -1,0 +1,43 @@
+# Fichiers sensibles et de configuration
+config.php
+install.php
+*.env
+
+# Base de données (sensibles uniquement)
+create_database.sql
+database.sql
+*.db
+*.sqlite
+
+# Template de BDD autorisé
+!database_template.sql
+
+# Uploads et fichiers utilisateurs (contenu sensible)
+uploads/*
+!uploads/README.md
+temp/
+
+# Fichiers de cache et temporaires
+*.log
+*.tmp
+cache/
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Éditeurs et IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Fichiers PHP temporaires
+*.php~
+temp_*.php
+
+# Dossiers de backup
+backup/
+old/
+archive/
