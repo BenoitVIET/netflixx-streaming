@@ -48,16 +48,35 @@ body {
     color: white;
     z-index: 1000;
     box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .top-menu a {
     color: white;
     text-decoration: none;
-    margin-right: 20px;
+    margin-left: 15px;
     padding: 8px 15px;
     border-radius: 5px;
     transition: var(--transition);
     font-weight: 500;
+}
+
+.nav-links a {
+    margin-left: 0;
+    margin-right: 5px;
+}
+
+.nav-links span {
+    margin-left: 15px;
+    margin-right: 5px;
 }
 
 .top-menu a:hover {
@@ -69,6 +88,35 @@ body {
     font-size: 24px;
     font-weight: bold;
     display: inline-block;
+}
+
+/* Menu hamburger pour mobile */
+.burger-menu {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 4px;
+    padding: 5px;
+}
+
+.burger-menu span {
+    width: 25px;
+    height: 3px;
+    background: white;
+    transition: var(--transition);
+    border-radius: 2px;
+}
+
+.burger-menu.active span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+
+.burger-menu.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.burger-menu.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
 }
 
 /* Layout principal avec padding pour le menu fixe */
@@ -145,8 +193,8 @@ h1 {
     width: fit-content;
 }
 
-/* Boutons */
-.btn, .action-btn {
+/* Boutons - Classe de base unifiée */
+.btn {
     background: var(--netflix-red);
     color: white;
     padding: 12px 25px;
@@ -161,7 +209,7 @@ h1 {
     margin: 10px 5px;
 }
 
-.btn:hover, .action-btn:hover {
+.btn:hover {
     background: var(--netflix-dark-red);
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(229,9,20,0.4);
@@ -402,11 +450,268 @@ h1 {
     background: rgba(229,9,20,0.1);
 }
 
+/* Pages de connexion/inscription/admin */
+.auth-card, .admin-card {
+    max-width: 500px;
+    margin: 50px auto;
+    background: rgba(255,255,255,0.1);
+    padding: 40px;
+    border-radius: var(--border-radius);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+.admin-card {
+    max-width: 800px;
+}
+
+.page-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: var(--netflix-red);
+}
+
+.page-subtitle {
+    text-align: center;
+    color: #ddd;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.signup-link, .login-link {
+    text-align: center;
+    margin-top: 25px;
+    padding-top: 25px;
+    border-top: 1px solid rgba(255,255,255,0.2);
+}
+
+.signup-link p, .login-link p {
+    color: #ccc;
+    margin-bottom: 10px;
+}
+
+.signup-link a, .login-link a {
+    color: var(--netflix-red);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.signup-link a:hover, .login-link a:hover {
+    text-decoration: underline;
+}
+
+/* Modificateur pour boutons de formulaire */
+.btn-submit {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.1rem;
+    margin-top: 20px;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/* Page admin */
+.admin-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: var(--netflix-red);
+}
+
+.admin-subtitle {
+    text-align: center;
+    color: #999;
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+}
+
+.user-info {
+    background: rgba(229,9,20,0.1);
+    border: 1px solid var(--netflix-red);
+    color: white;
+    padding: 15px;
+    border-radius: var(--border-radius);
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.form-title {
+    color: var(--netflix-red);
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.form-info {
+    background: rgba(255,255,255,0.05);
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 4px solid var(--netflix-red);
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+/* Page de déconnexion */
+.logout-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
+    background: var(--dark-bg);
+    color: white;
+    padding: 20px;
+}
+
+.logout-icon {
+    font-size: 5rem;
+    margin-bottom: 20px;
+    animation: fadeInScale 1s ease-out;
+}
+
+.logout-container h1 {
+    color: var(--netflix-red);
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+}
+
+.logout-container p {
+    color: #ddd;
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+/* Modificateur pour bouton accueil */
+.btn-home {
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Lien retour */
+.back-link {
+    display: inline-block;
+    color: var(--netflix-red);
+    text-decoration: none;
+    margin-bottom: 20px;
+    padding: 10px 15px;
+    border: 1px solid var(--netflix-red);
+    border-radius: 5px;
+    transition: var(--transition);
+}
+
+.back-link:hover {
+    background: var(--netflix-red);
+    color: white;
+}
+
+/* Détails du film */
+.film-details {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.film-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.film-title {
+    font-size: 2.5rem;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.film-id-badge {
+    background: var(--netflix-red);
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.film-content {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.film-image-section img, .film-placeholder {
+    width: 100%;
+    border-radius: var(--border-radius);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.film-placeholder {
+    height: 450px;
+    background: rgba(255,255,255,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 1.5rem;
+    color: #666;
+    text-align: center;
+}
+
+.film-info-section h3 {
+    color: var(--netflix-red);
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.film-description {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #ddd;
+}
+
+/* Styles pour les films sur la page films.php */
+.films-count {
+    text-align: center;
+    background: rgba(255,255,255,0.1);
+    padding: 15px;
+    border-radius: var(--border-radius);
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+}
+
+.film-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .film-detail {
         grid-template-columns: 1fr;
         text-align: center;
+    }
+    
+    .film-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 20px;
     }
     
     .films-grid {
@@ -417,11 +722,76 @@ h1 {
     .top-menu {
         padding: 10px 15px;
         font-size: 0.9rem;
+        justify-content: space-between;
     }
     
     .top-menu a {
-        margin-right: 15px;
-        padding: 6px 12px;
+        margin-right: 0;
+        margin-left: 0;
+        padding: 15px;
+        width: 100%;
+        text-align: left;
+        border-radius: 8px;
+    }
+    
+    /* Navigation mobile */
+    .burger-menu {
+        display: flex;
+    }
+    
+    .top-menu > a {
+        display: none;
+    }
+    
+    .nav-links {
+        position: fixed;
+        top: 70px;
+        right: -300px;
+        width: 280px;
+        height: calc(100vh - 70px);
+        background: var(--netflix-red);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+        transition: right 0.3s ease;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.3);
+        overflow-y: auto;
+        z-index: 999;
+    }
+    
+    .nav-links.active {
+        right: 0;
+    }
+    
+    .nav-links a {
+        margin: 8px 0;
+        padding: 15px;
+        width: 100%;
+        border-radius: 8px;
+        text-align: left;
+        background: rgba(255,255,255,0.1);
+        transition: var(--transition);
+    }
+    
+    .nav-links a:hover {
+        background: rgba(255,255,255,0.2);
+        transform: translateX(5px);
+    }
+    
+    .nav-links a.active {
+        background: rgba(255,255,255,0.3);
+        font-weight: bold;
+    }
+    
+    .nav-links span {
+        display: block;
+        margin: 15px 0;
+        padding: 10px;
+        background: rgba(255,255,255,0.2);
+        border-radius: 8px;
+        text-align: center;
+        font-weight: bold;
+        color: #ffd700;
     }
     
     .container {
@@ -435,5 +805,18 @@ h1 {
     .actions-section {
         flex-direction: column;
         align-items: center;
+    }
+    
+    .auth-card, .admin-card {
+        margin: 20px;
+        padding: 30px 20px;
+    }
+    
+    .logout-container h1 {
+        font-size: 2rem;
+    }
+    
+    .logout-icon {
+        font-size: 3rem;
     }
 }

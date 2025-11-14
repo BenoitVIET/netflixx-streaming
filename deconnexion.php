@@ -42,7 +42,7 @@ session_destroy();
         <h1>Déconnexion réussie</h1>
         <p>Vous avez été déconnecté avec succès.<br>
         Vous allez être redirigé vers la page d'accueil...</p>
-        <a href="index.php" class="btn-home">🏠 Retour à l'accueil</a>
+        <a href="index.php" class="btn btn-home">🏠 Retour à l'accueil</a>
     </div>
 </body>
 </html>

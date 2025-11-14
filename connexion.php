@@ -52,11 +52,18 @@ if (estConnecte()) {
 <body>
     <!-- Menu de navigation -->
     <div class="top-menu">
-        <strong>NetflixX</strong>
-        <a href="index.php">🏠 Accueil</a>
-        <a href="films.php">🎬 Films</a>
-        <a href="inscription.php">📝 Inscription</a>
-        <a href="connexion.php" class="active">🔑 Connexion</a>
+        <div class="logo">NetflixX</div>
+        <div class="burger-menu" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="nav-links" id="navLinks">
+            <a href="index.php">🏠 Accueil</a>
+            <a href="films.php">🎬 Films</a>
+            <a href="inscription.php">📝 Inscription</a>
+            <a href="connexion.php" class="active">🔑 Connexion</a>
+        </div>
     </div>
 
     <div class="container">
@@ -107,7 +114,7 @@ if (estConnecte()) {
                         >
                     </div>
 
-                    <button type="submit" class="submit-btn">
+                    <button type="submit" class="btn btn-submit">
                         🚀 Se connecter
                     </button>
                 </form>
@@ -120,5 +127,8 @@ if (estConnecte()) {
             <?php endif; ?>
         </div>
     </div>
+
+    <!-- JavaScript pour le menu mobile -->
+    <script src="js/mobile-menu.js"></script>
 </body>
 </html>

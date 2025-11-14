@@ -2,7 +2,7 @@
 require_once 'config.php';
 
 // Récupérer tous les films
-$tous_les_films = getTousLesFilms();
+$tous_les_films = obtenirTousLesFilms();
 ?>
 
 <!DOCTYPE html>
@@ -17,17 +17,24 @@ $tous_les_films = getTousLesFilms();
 <body>
     <!-- Menu de navigation -->
     <div class="top-menu">
-        <strong>NetflixX</strong>
-        <a href="index.php">🏠 Accueil</a>
-        <a href="films.php" class="active">🎬 Films</a>
+        <div class="logo">NetflixX</div>
+        <div class="burger-menu" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="nav-links" id="navLinks">
+            <a href="index.php">🏠 Accueil</a>
+            <a href="films.php" class="active">🎬 Films</a>
         <?php if (estConnecte()): ?>
             <a href="admin.php">⚙️ Admin</a>
-            <span style="margin-left: 20px;">👤 <?php echo nettoyer(obtenirUtilisateur()); ?></span>
-            <a href="deconnexion.php">🚪 Déconnexion</a>
+            <a href="deconnexion.php">🚺 Déconnexion</a>
+            <span style="margin-left: 20px;">👤 BenoitVIET</span>
         <?php else: ?>
             <a href="inscription.php">📝 Inscription</a>
             <a href="connexion.php">🔑 Connexion</a>
         <?php endif; ?>
+        </div>
     </div>
 
     <div class="container">
@@ -90,5 +97,8 @@ $tous_les_films = getTousLesFilms();
             <?php endif; ?>
         </main>
     </div>
+
+    <!-- JavaScript pour le menu mobile -->
+    <script src="js/mobile-menu.js"></script>
 </body>
 </html>

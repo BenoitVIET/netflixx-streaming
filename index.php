@@ -231,20 +231,27 @@ $derniers_films = obtenirDerniersFilms(5);
     </audio>
 
     <!-- === CONTENU PRINCIPAL DU SITE === -->
-    <div class="main-site-content"
+    <div class="main-site-content">
     <!-- Menu de navigation -->
     <div class="top-menu">
         <div class="logo">NetflixX</div>
-        <a href="index.php">🏠 Accueil</a>
-        <a href="films.php">🎬 Films</a>
+        <div class="burger-menu" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="nav-links" id="navLinks">
+            <a href="index.php">🏠 Accueil</a>
+            <a href="films.php">🎬 Films</a>
         <?php if (estConnecte()): ?>
             <a href="admin.php">⚙️ Admin</a>
-            <span style="margin-left: 20px;">👤 <?php echo nettoyer(obtenirUtilisateur()); ?></span>
-            <a href="deconnexion.php">🚪 Déconnexion</a>
+            <a href="deconnexion.php">🚺 Déconnexion</a>
+            <span style="margin-left: 20px;">👤 BenoitVIET</span>
         <?php else: ?>
             <a href="inscription.php">📝 Inscription</a>
             <a href="connexion.php">🔑 Connexion</a>
         <?php endif; ?>
+        </div>
     </div>
 
     <!-- Contenu principal -->
@@ -296,9 +303,9 @@ $derniers_films = obtenirDerniersFilms(5);
 
                 <!-- Actions rapides -->
                 <section class="actions-section">
-                    <a href="films.php" class="action-btn">📋 Voir tous les films</a>
+                    <a href="films.php" class="btn">📋 Voir tous les films</a>
                     <?php if (estConnecte()): ?>
-                        <a href="admin.php" class="action-btn">➕ Ajouter un film</a>
+                        <a href="admin.php" class="btn">➕ Ajouter un film</a>
                     <?php endif; ?>
                 </section>
             </main>
@@ -323,9 +330,7 @@ $derniers_films = obtenirDerniersFilms(5);
             
             // Démarre le son automatiquement après un court délai
             setTimeout(() => {
-                console.log('Tentative de lecture audio...');
                 audio.play().catch(function(error) {
-                    console.log('Autoplay bloqué par le navigateur:', error);
                     // Continue l'animation même sans son
                 });
             }, 800);
@@ -365,5 +370,8 @@ $derniers_films = obtenirDerniersFilms(5);
             }, 5000);
         });
     </script>
+
+    <!-- JavaScript pour le menu mobile -->
+    <script src="js/mobile-menu.js"></script>
 </body>
 </html>

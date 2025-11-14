@@ -56,17 +56,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
     <!-- Menu de navigation -->
     <div class="top-menu">
-        <strong>NetflixX</strong>
-        <a href="index.php">🏠 Accueil</a>
-        <a href="films.php">🎬 Films</a>
+        <div class="logo">NetflixX</div>
+        <div class="burger-menu" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="nav-links" id="navLinks">
+            <a href="index.php">🏠 Accueil</a>
+            <a href="films.php">🎬 Films</a>
         <?php if (estConnecte()): ?>
             <a href="admin.php">⚙️ Admin</a>
-            <span style="margin-left: 20px;">👤 <?php echo nettoyer(obtenirUtilisateur()); ?></span>
-            <a href="deconnexion.php">🚪 Déconnexion</a>
+            <a href="deconnexion.php">🚺 Déconnexion</a>
+            <span style="margin-left: 20px;">👤 BenoitVIET</span>
         <?php else: ?>
             <a href="inscription.php" class="active">📝 Inscription</a>
             <a href="connexion.php">🔑 Connexion</a>
         <?php endif; ?>
+        </div>
     </div>
 
     <div class="container">
@@ -142,7 +149,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         >
                     </div>
 
-                    <button type="submit" class="submit-btn">
+                    <button type="submit" class="btn btn-submit">
                         🚀 Créer mon compte
                     </button>
                 </form>
@@ -155,5 +162,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <?php endif; ?>
         </div>
     </div>
+
+    <!-- JavaScript pour le menu mobile -->
+    <script src="js/mobile-menu.js"></script>
 </body>
 </html>

@@ -68,12 +68,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
     <!-- Menu de navigation -->
     <div class="top-menu">
-        <strong>NetflixX</strong>
-        <a href="index.php">🏠 Accueil</a>
-        <a href="films.php">🎬 Films</a>
-        <a href="admin.php" class="active">⚙️ Admin</a>
-        <span style="margin-left: 20px;">👤 <?php echo nettoyer(obtenirUtilisateur()); ?></span>
-        <a href="deconnexion.php">🚪 Déconnexion</a>
+        <div class="logo">NetflixX</div>
+        <div class="burger-menu" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="nav-links" id="navLinks">
+            <a href="index.php">🏠 Accueil</a>
+            <a href="films.php">🎬 Films</a>
+            <a href="admin.php" class="active">⚙️ Admin</a>
+            <a href="deconnexion.php">🚪 Déconnexion</a>
+            <span style="margin-left: 20px;">👤 BenoitVIET</span>
+        </div>
     </div>
 
     <div class="container">
@@ -172,17 +179,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     ><?php echo htmlspecialchars($urlvideo ?? ''); ?></textarea>
                 </div>
 
-                <button type="submit" class="submit-btn">
+                <button type="submit" class="btn btn-submit">
                     ✨ Ajouter le film
                 </button>
             </form>
 
             <!-- Actions supplémentaires -->
             <div class="actions-section">
-                <a href="films.php" class="action-btn">
+                <a href="films.php" class="btn">
                     📋 Voir tous les films
                 </a>
-                <a href="index.php" class="action-btn">
+                <a href="index.php" class="btn">
                     🏠 Retour à l'accueil
                 </a>
             </div>
@@ -212,5 +219,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     });
     </script>
+
+    <!-- JavaScript pour le menu mobile -->
+    <script src="js/mobile-menu.js"></script>
 </body>
 </html>

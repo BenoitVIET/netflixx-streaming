@@ -11,7 +11,7 @@ if ($film_id <= 0) {
 }
 
 // Récupérer les détails du film
-$film = getFilmParId($film_id);
+$film = obtenirFilmParId($film_id);
 
 if (!$film) {
     // Redirection si le film n'existe pas
@@ -32,17 +32,24 @@ if (!$film) {
 <body>
     <!-- Menu de navigation -->
     <div class="top-menu">
-        <strong>NetflixX</strong>
-        <a href="index.php">🏠 Accueil</a>
-        <a href="films.php">🎬 Films</a>
+        <div class="logo">NetflixX</div>
+        <div class="burger-menu" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="nav-links" id="navLinks">
+            <a href="index.php">🏠 Accueil</a>
+            <a href="films.php">🎬 Films</a>
         <?php if (estConnecte()): ?>
             <a href="admin.php">⚙️ Admin</a>
-            <span style="margin-left: 20px;">👤 <?php echo nettoyer(obtenirUtilisateur()); ?></span>
-            <a href="deconnexion.php">🚪 Déconnexion</a>
+            <a href="deconnexion.php">🚺 Déconnexion</a>
+            <span style="margin-left: 20px;">👤 BenoitVIET</span>
         <?php else: ?>
             <a href="inscription.php">📝 Inscription</a>
             <a href="connexion.php">🔑 Connexion</a>
         <?php endif; ?>
+        </div>
     </div>
 
     <div class="container">
@@ -123,35 +130,27 @@ if (!$film) {
                     <div class="video-container">
                         <?php echo $video_a_afficher; ?>
                     </div>
-                    <!-- Debug info (peut être supprimé en production) -->
-                    <p style="font-size: 10px; color: #666; margin-top: 5px;">
-                        📹 Vidéo source : <?php echo $source_video; ?>
-                    </p>
                 <?php else: ?>
                     <div class="no-video">
                         📹 Aucune vidéo disponible pour ce film.<br>
                         <small>La vidéo sera ajoutée prochainement.</small>
-                        
-                        <!-- Debug info pour l'admin -->
-                        <?php if (isset($_SESSION['user_id'])): ?>
-                            <p style="font-size: 10px; color: #999; margin-top: 10px;">
-                                🔧 Admin : Aucune vidéo en base ET aucune vidéo dans la fonction obtenirBonneVideo()
-                            </p>
-                        <?php endif; ?>
                     </div>
                 <?php endif; ?>
             </section>
 
             <!-- Actions -->
             <section class="actions-section">
-                <a href="films.php" class="action-btn">
+                <a href="films.php" class="btn">
                     📋 Voir tous les films
                 </a>
-                <a href="index.php" class="action-btn">
+                <a href="index.php" class="btn">
                     🏠 Retour à l'accueil
                 </a>
             </section>
         </main>
     </div>
+
+    <!-- JavaScript pour le menu mobile -->
+    <script src="js/mobile-menu.js"></script>
 </body>
 </html>
