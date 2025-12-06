@@ -79,7 +79,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <a href="films.php">🎬 Films</a>
             <a href="admin.php" class="active">⚙️ Admin</a>
             <a href="deconnexion.php">🚪 Déconnexion</a>
-            <span style="margin-left: 20px;">👤 BenoitVIET</span>
+            <span style="margin-left: 20px;">👤 <?php echo nettoyer(obtenirUtilisateur()); ?></span>
         </div>
     </div>
 

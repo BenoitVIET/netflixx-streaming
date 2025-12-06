@@ -43,8 +43,8 @@ if (!$film) {
             <a href="films.php">🎬 Films</a>
         <?php if (estConnecte()): ?>
             <a href="admin.php">⚙️ Admin</a>
-            <a href="deconnexion.php">🚺 Déconnexion</a>
-            <span style="margin-left: 20px;">👤 BenoitVIET</span>
+            <a href="deconnexion.php">🚪 Déconnexion</a>
+            <span style="margin-left: 20px;">👤 <?php echo nettoyer(obtenirUtilisateur()); ?></span>
         <?php else: ?>
             <a href="inscription.php">📝 Inscription</a>
             <a href="connexion.php">🔑 Connexion</a>

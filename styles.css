@@ -186,7 +186,7 @@ h1 {
     flex-grow: 1;
 }
 
-/* Centrage parfait du bouton dans la card */
+/* Centrage du bouton dans la card */
 .film-card .btn {
     margin-top: auto;
     align-self: center;

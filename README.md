@@ -263,6 +263,11 @@ Ce projet est sous licence MIT. Voir le fichier `LICENSE` pour plus de détails.
 - Compatibilité cross-browser améliorée
 - Performance générale optimisée
 
+### 🔐 Sécurité v2.1 (Décembre 2025)
+- **Validation MIME implémentée** dans la fonction uploadImage() - Protection renforcée contre fichiers malveillants
+- **Emoji déconnexion** corrigé (🚺 → 🚪) pour meilleure cohérence UX
+- **Affichage nom utilisateur dynamique** - Chaque utilisateur voit son propre login dans la navbar
+
 ---
 
-⭐ **NetflixX v2.0 - L'expérience streaming ultime !**
+⭐ **NetflixX v2.1 - L'expérience streaming ultime !**

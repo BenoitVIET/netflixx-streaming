@@ -11,9 +11,9 @@ if (session_status() == PHP_SESSION_NONE) {
 
 // Configuration de la base de données - MODIFIEZ CES VALEURS
 $host = 'localhost';
-$dbname = 'VOTRE_NOM_DE_BASE';  // Changez ici
-$username = 'VOTRE_USER';       // Changez ici
-$password = 'VOTRE_PASSWORD';   // Changez ici
+$dbname = 'VOTRE_NOM_DE_BASE'; 
+$username = 'VOTRE_USER';       
+$password = 'VOTRE_PASSWORD';   
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
@@ -168,6 +168,23 @@ function uploadImage($file) {
     $extension = strtolower(pathinfo($nom_fichier, PATHINFO_EXTENSION));
     if (!in_array($extension, $extensions_autorisees)) {
         return ['error' => 'Extension non autorisée. Utilisez: ' . implode(', ', $extensions_autorisees)];
+    }
+    
+    // Validation MIME pour la sécurité
+    $finfo = finfo_open(FILEINFO_MIME_TYPE);
+    $mime_type = finfo_file($finfo, $tmp_name);
+    finfo_close($finfo);
+    
+    $mimes_autorises = [
+        'image/jpeg',
+        'image/jpg', 
+        'image/png',
+        'image/gif',
+        'image/webp'
+    ];
+    
+    if (!in_array($mime_type, $mimes_autorises)) {
+        return ['error' => 'Type MIME invalide. Seules les vraies images sont autorisées.'];
     }
     
     $dossier_destination = 'uploads/images/';
